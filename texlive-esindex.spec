@@ -1,6 +1,6 @@
 Name:		texlive-esindex
 Version:	52342
-Release:	1
+Release:	2
 Summary:	Typset index entries in Spanish documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/esindex
