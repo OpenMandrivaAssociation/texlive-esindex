@@ -3,7 +3,7 @@ Version:	71111
 Release:	1
 Summary:	Typset index entries in Spanish documents
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/esindex
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/esindex
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.doc.r%{version}.tar.xz
