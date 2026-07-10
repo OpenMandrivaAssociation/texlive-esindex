@@ -1,39 +1,26 @@
-Name:		texlive-esindex
-Version:	71111
-Release:	1
-Summary:	Typset index entries in Spanish documents
+%global tl_name esindex
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.8
+Release:	%{tl_revision}.1
+Summary:	Generate sorting keys for indexes
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/esindex
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/esindex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package helps you to create indexes in Spanish. With
-esindex you can write, say, \esindex{canon} and the entry will
-be correctly alphabetized in the index. This release of esindex
-works with accented characters in any encoding, and without
-babel.
+With this package sorting keys can be automatically generated. It was
+originally devised for Spanish, so that, say, \esindex{canon} is
+correctly alphabetized in the index, but it can be configured to
+generate sorting keys for other languages, with custom replacements and
+multilevel comparisons.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/esindex
-%doc %{_texmfdistdir}/doc/latex/esindex
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
